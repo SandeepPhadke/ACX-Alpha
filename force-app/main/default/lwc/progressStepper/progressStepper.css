@@ -1,0 +1,78 @@
+.stepper-container {
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: #e0e0e0;
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 60%; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.completed-icon {
+    color: green;
+}
+
+.progress {
+    height: 100%;
+    background-color: #0070d2;  
+    transition: width 0.3s ease-in-out;
+    position: absolute; /* Ensure progress bar aligns with circle */
+    top: 0;
+    left: 0;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: -14px; /* Adjusted to align circle with progress bar */
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Ensure circle and button are above the progress bar */
+}
+
+.step-circle {
+    width: 28px; /* Slightly larger to match the image */
+    height: 28px;
+    border-radius: 50%;
+    background-color: white; /* White fill to match the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    border: 4px solid #0070d2; /* Thicker border to match the image */
+    position: absolute;
+    top: -12px; /* Adjusted to center the circle on the progress bar */
+    box-sizing: border-box; /* Ensure border doesn't affect size */
+}
+
+.step-circle.active {
+    background-color:#28a745 !important; /* Filled blue for active step */
+    color: white;
+    border-color: #28a745 !important;
+}
+
+.step-number {
+    display: none; /* Hides the step number */
+}
+
+lightning-button {
+    --slds-c-button-brand-color-background: #0070d2;
+    --slds-c-button-brand-color-background-hover: #005fb2;
+    --slds-c-button-neutral-color-background: #f3f3f3;
+    --slds-c-button-neutral-color-background-hover: #e0e0e0;
+    margin-top: 30px; /* Push buttons below the circle */
+}

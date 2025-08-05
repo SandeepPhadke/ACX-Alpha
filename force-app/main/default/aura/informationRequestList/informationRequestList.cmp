@@ -1,0 +1,49 @@
+<aura:component controller="InformationRequestController" 
+    implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId,force:appHostable" 
+    access="global">
+    
+   	 <!--handler-->
+     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+     <!--handler-->
+     <!--attribute-->
+     <aura:attribute name="columns" type="List" />
+     <aura:attribute name="data" type="object" />
+     <aura:attribute name="initRows" type="Integer" default="6"/>
+     <aura:attribute name="Count" type="Integer" default="0"/>
+     <aura:attribute name="offset" type="Integer" default="0"/>
+     <aura:attribute name="totalResult" type="Integer" default="0"/>
+    <aura:attribute name="tableStyle" type="String"/>
+     <!--attribute-->
+
+   
+    <!-- Table Container -->
+    <div>
+        <lightning:card class="slds-card">
+            <aura:if isTrue="{!v.isLoading}">
+                <lightning:spinner alternativeText="Loading..." />
+            </aura:if>
+            
+                <div class="{! v.tableClass }" style="{!v.tableStyle}">
+                <lightning:datatable 
+                                    data="{!v.data}" 
+                                    columns="{!v.columns}" 
+                                    keyField="Id" 
+                                    hideCheckboxColumn="true" 
+                                    rowNumberOffset="0"
+                                    enableInfiniteLoading="true"
+                                    loadMoreOffset="{!v.loadMoreOffset}"
+                                    onloadmore="{!c.LoadMore}"
+                                    class="slds-table slds-table_bordered slds-card"
+                                    sortedBy="Due_Date__c"
+                                    sortedDirection="desc"/>
+                    </div>        
+            
+            <aura:if isTrue="{!v.Count == 0}">
+                <div class="slds-text-align_center" style="font-size: 16px; font-weight: bold; margin-top: 10px; margin-bottom: 10px;">
+                   <p> <lightning:icon iconName="utility:success" size="medium" alternativeText="Completed" /></p>
+                    <strong>You’re up to date.</strong><p class="slds-text-body_regular slds-text-color_default" style="font-weight: normal;">We’ll let you know when something comes up.</p>
+                </div>
+            </aura:if>
+        </lightning:card>   
+    </div>
+</aura:component>

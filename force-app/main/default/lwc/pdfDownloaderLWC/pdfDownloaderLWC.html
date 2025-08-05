@@ -1,0 +1,24 @@
+<template>
+    <template if:true={isLoading}>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%; margin-bottom: 1rem;">
+            <lightning-spinner size="large"></lightning-spinner>
+        </div>
+    </template>
+
+    <template if:true={url}>
+        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+            <template if:true={isDownloadButtonVisible}>
+                <lightning-button class="custom-download-button"
+                    label="Download Questionnaire" 
+                    variant="brand" 
+                    onclick={downloadPdf}>
+                </lightning-button>
+            </template>
+        </div>
+    </template>
+
+    <template if:true={isNoDocumentFound}>
+        
+        <lightning-card class="slds-grid slds-grid_vertical-align-center slds-align_absolute-center">No Document found.</lightning-card>
+    </template>
+</template>

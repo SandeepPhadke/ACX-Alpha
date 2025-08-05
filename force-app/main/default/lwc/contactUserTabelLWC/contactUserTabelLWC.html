@@ -1,0 +1,108 @@
+<template>
+    <div class="slds-p-horizontal_small slds-m-vertical_small">
+  <h2 class="slds-text-heading_medium slds-text-align-left" title="Contacts">
+    <b>Contacts</b>
+  </h2>
+</div>
+    <template if:true={users.length}>
+        <template if:true={teamHeaderLabel}>
+            <div class="slds-text-heading_medium slds-m-bottom_small slds-p-left_medium slds-text-align-left">
+                <b>{teamHeaderLabel}</b>
+            </div>
+        </template>
+
+        <div class="slds-grid slds-wrap slds-scrollable_y slds-p-left_none slds-p-right_none slds-border_none" style = {dynamicStyle}>
+            <template for:each={users} for:item="user">
+                <div key={user.Id} class={columnClass}>
+                    <div class="slds-grid slds-m-around_small slds-p-horizontal_none slds-grid_align-center" style="justify-content: flex-start;">
+
+                        <div class="slds-col slds-p-right_none slds-p-left_none">
+                            <div class="slds-avatar slds-avatar_circle slds-avatar_large" style="transform: translateY(-10px);">
+                                <template if:true={user.isProfileAndersen}>
+                                    <img src={user.ProfilePhoto} alt="Profile Photo" class="slds-m-bottom_xx-small" style="transform: scale(1.2);" />
+                                </template>
+                                <template if:false={user.isProfileAndersen}>
+                                    <img src={user.ProfilePhoto} alt="Profile Photo" />
+                                </template>
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-p-right_none slds-p-left_none slds-m-left_small">
+                            <header class="slds-grid slds-grid_vertical-align-center">
+                                <div class="slds-grid slds-grid_vertical slds-text-heading_small" >
+                                    <div class="slds-grid">
+                                        <b class="slds-col slds-p-left_none slds-p-right_none slds-wrap slds-gap_none"  style="Color:dark grey;">
+                                            {user.Name}
+                                        </b>
+                                        <template if:true={user.LinkedinUrl}>
+                                            <a href={user.LinkedinUrl} target="_blank" class="slds-m-left_xx-small">
+                                                <img src={linkedinIcon} alt="LinkedIn" class="slds-m-right_xx-small" width="15" height="15" />
+                                            </a>
+                                        </template>
+                                    </div>
+                                    <p class=" slds-col slds-text-body_small slds-m-bottom_small slds-p-left_none slds-p-right_none slds-wrap" style="Color: grey;">{user.contactHeader}</p>
+                                </div>
+                            </header>
+
+                            <div class="slds-text-color_weak">
+                                <div class="slds-grid slds-grid_vertical-align-center">
+                                    <img src={mailIcon} alt="Email" width="15" height="15" class="slds-m-right_xx-small" />
+                                    
+                                        
+                                        <p class="slds-col slds-p-left_xx-small slds-p-right_none slds-wrap slds-gap_none"></p>
+                                        <a href={user.emailHref} target="_blank" >{user.Email}</a>
+                                    </p>
+                                </div>
+                                <div class="slds-grid slds-grid_vertical-align-center slds-m-left_none" style="color:grey;">
+                                    <template if:true={user.Phone}>
+                                        <img src={phoneIcon} alt="Phone" width="15" height="15" class="slds-m-right_xx-small slds-m-left_none" />
+                                    </template> 
+                                     <p class=" slds-col slds-p-left_xx-small slds-p-right_none slds-wrap"> {user.Phone}</p>
+                                </div>
+                               <!-- <template if:true={user.showCountry}>
+                                    <div class="slds-grid slds-grid_vertical-align-center" style="Color:grey;">
+                                        <lightning-icon icon-name="utility:checkin" size="xx-small" class=" slds-col slds-p-left_none slds-p-right_none slds-m-right_xx-small slds-p-top_xx-small"></lightning-icon>
+                                        <p class="slds-col slds-p-left_none slds-p-right_none slds-wrap" ><strong>Country:</strong> {user.Country}</p>
+                                    </div>
+                                </template> -->
+                                <div class="slds-grid slds-grid_vertical-align-center" style="color:grey;">
+                                    <lightning-icon icon-name="utility:clock" size="xx-small" class=" slds-col slds-p-left_none slds-p-right_none slds-m-right_xx-small slds-m-top_xx-small slds-m-bottom_xx-small slds-align-top"></lightning-icon>
+                                     <p class="slds-col slds-p-left_none slds-p-right_none slds-wrap">Time Zone:  {user.TimeZone}</p>
+                                </div>
+                                <div>
+                                    <button class="slds-button slds-m-top_small slds-button_outline-brand" 
+                                            style="border: 1px solid black; background-color: transparent; color:grey;" 
+                                            data-email={user.Email}
+                                            onclick={handleSendMessage} 
+                                            >
+                                        <p style="color:black;">Send Message</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+
+    <template if:false={users.length}>
+         <div class="slds-p-horizontal_small slds-m-top_medium">
+    <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-start slds-text-color_weak">
+      <lightning-icon
+        icon-name="utility:people"
+        size="medium"
+        class="slds-m-right_small"
+        alternative-text="People icon"
+      ></lightning-icon>
+
+      <div>
+        <p class="slds-text-heading_small slds-m-bottom_xx-small">
+          <strong>Your team hasn’t been assigned yet.</strong>
+        </p>
+        <p>We’ll update this section when your contacts are available.</p>
+      </div>
+    </div>
+  </div>
+    </template>
+</template>

@@ -1,0 +1,7 @@
+<aura:component implements="force:lightningQuickAction,lightning:availableForFlowActions">
+    <aura:attribute name="profileName" type="String" />
+    <!-- Navigation service is included but not used for external URL -->
+    <lightning:navigation aura:id="navigationService" />
+    <!-- Add a client-side controller reference -->
+    <aura:handler name="init" value="{!this}" action="{!c.invoke}" />
+</aura:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexTestSuite xmlns="http://soap.sforce.com/2006/04/metadata">
+    <testClassName>ace_FilesDaoTest</testClassName>
+    <testClassName>ace_FilesTest</testClassName>
+    <testClassName>FileNotificationAlertComposerTest</testClassName>
+    <testClassName>FileNotificationCountTest</testClassName>
+    <testClassName>FileNotificationQueueEntryTest</testClassName>
+    <testClassName>FileNotificationQueueTest</testClassName>
+    <testClassName>ScheduledFileNotificationActionTest</testClassName>
+</ApexTestSuite>

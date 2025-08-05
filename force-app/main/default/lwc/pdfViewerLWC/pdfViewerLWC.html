@@ -1,0 +1,30 @@
+<template>
+    <template if:true={isLoading}>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%; margin-bottom: 1rem;">
+            <lightning-spinner size="large"></lightning-spinner>
+        </div>
+    </template>
+
+    <template if:true={isDownloadButtonVisible}>
+        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 2rem;">
+            <lightning-button 
+                label={fileLabel} 
+                variant="brand" 
+                class="custom-download-button"
+                onclick={downloadPdf}>
+            </lightning-button>
+        </div>
+    </template>
+
+    <template if:true={isIframeVisible}>
+        <iframe src={url} style={pdfHeight}></iframe>
+    </template>
+
+    <template if:true={isNoDocumentFound}>
+       
+       <div class="slds-p-bottom_xx-small">
+        <div class="slds-card"  style=" border:none; background-color: #ffff; border-radius: 25px;"><p class="slds-text-align_center slds-m-bottom_x-large slds-p-bottom_large slds-p-top_x-large" style="font-weight: bold;">No Document found.</p></div>
+        
+       </div> 
+    </template>
+</template>

@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="fileId" label="Work Record Id" />
+    <design:attribute name="heightInRem" label="Height (in rem)"/>
+    <design:attribute name="onStep2" label="Stage No." />
+    <design:attribute name="type" label="File Type" />
+</design:component>

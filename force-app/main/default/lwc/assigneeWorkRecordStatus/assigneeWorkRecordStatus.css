@@ -1,0 +1,32 @@
+.slds-path__scroller {
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+.slds-text-color_error {
+	color: #c23934;
+}
+
+.record-name {
+	color: rgb(0, 90, 130);
+	cursor: pointer;
+}
+
+.record-name:hover {
+	text-decoration: underline;
+}
+
+.empty-state-container {
+	display: flex;
+	align-items: center;
+	padding: 1.5rem;
+}
+
+.empty-state-icon {
+	margin-right: 0.75rem;
+}
+
+.empty-state-message {
+	font-size: 0.9rem;
+	color: #000;
+}

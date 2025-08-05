@@ -1,0 +1,17 @@
+.locale-info {
+	transition: all 0.3s ease;
+}
+
+/* Add padding for mobile views */
+@media screen and (max-width: 48em) {
+	.locale-info {
+		padding: 0.5rem;
+	}
+}
+
+/* Adjust text size for very small screens */
+@media screen and (max-width: 20em) {
+	.slds-text-heading_small {
+		font-size: 1rem;
+	}
+}

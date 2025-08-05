@@ -1,0 +1,17 @@
+.blue-icon {
+    --sds-c-icon-color-foreground-default: #077EFF; /* Blue */
+}
+
+.black-icon {
+    --sds-c-icon-color-foreground-default: black; /* Black */
+}
+
+.slds-card{
+    border: none;
+}
+/* .slds-icon-text-default {
+    --slds-c-icon-color-foreground: var(--slds-c-icon-color-foreground-default, var(--sds-c-icon-color-foreground-default, var(--slds-g-color-neutral-base-50, rgb(138 23 23))));
+} */
+.bold-text {
+    font-weight: 800;
+}

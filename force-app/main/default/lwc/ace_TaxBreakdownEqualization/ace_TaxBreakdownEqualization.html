@@ -1,0 +1,46 @@
+<template>
+    
+    <div  class="slds-card slds-p-top_small" style="border: none;">
+            <template if:true={equalizationRecord}>
+            <div class="slds-grid slds-grid_vertical ">
+                <div class="slds-col slds-grid slds-p-left_none">
+                        <div class="  slds-col slds-p-left_none slds-text-heading_small ">
+                           <strong class="bold-text"> {headingLabel} </strong>
+                        </div>
+                            <span class="slds-col slds-p-right_none slds-text-heading_small slds-text-align_right" style={computedStyle} >
+                              <strong class="bold-text">{formattedAmount}</strong>  
+                            </span>                       
+                </div>
+
+            
+                    <div class=" slds-p-left_medium slds-m-top_small">
+                        
+                            <p class="slds-text-body_regular" style={supplementalInfoStyle}>
+                                <template if:true={isAmountPositive}>
+                                    <lightning-icon icon-name="utility:info_alt"  
+                                        size="x-small" 
+                                        class="slds-p-right_x-small black-icon">
+                                    </lightning-icon>
+                                </template>
+                                <template if:false={isAmountPositive}>
+                                    <lightning-icon icon-name="utility:info_alt"  
+                                        size="x-small" 
+                                        class="slds-p-right_x-small blue-icon">
+                                    </lightning-icon>
+                                </template>
+                                {supplementalInfo} </p>
+                       
+                    
+                        
+                    </div>
+         </div>
+                
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error">
+                    {error}
+                </div>
+            </template>
+        
+        </div>
+</template>

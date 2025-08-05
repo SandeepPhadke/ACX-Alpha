@@ -1,0 +1,10 @@
+<aura:component implements="force:lightningQuickAction,lightning:availableForFlowScreens">
+   <aura:attribute name="recordId" type="String" />
+   <div style="display: flex; justify-content: center; align-items: center;">
+    <button style="background-color: #f4f4f4; color: black; border: 1px solid #ccc; padding: 7px 5px; width: 250px; border-radius: 5px; cursor: pointer;" 
+        onclick="{!c.navigateToWebsite}">
+    Sign Tax Return
+</button>
+
+</div>
+</aura:component>

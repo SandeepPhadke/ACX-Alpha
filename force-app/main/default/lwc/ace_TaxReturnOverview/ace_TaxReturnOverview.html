@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-grid  slds-p-around_xx-large" style="border-radius: 25px; background-color: rgb(255, 255, 255);">
+        <div class="slds-col slds-p-left_medium slds-p-right_medium" style ="width: 60%;">
+
+            <c-ace_-tax-return-breakdown record-id={recordId} max-height={maxHeight} ontaxreturnheight={handleHeightChange}></c-ace_-tax-return-breakdown>
+        </div>
+        <div class=" slds-col slds-p-right_medium" style ="width: 40%;">
+            <c-ace_-tax-breakdown-position-summary record-id={recordId} max-height={maxHeight} onmessageheight={handleHeightChange}></c-ace_-tax-breakdown-position-summary>
+        </div>
+    </div>    
+</template>

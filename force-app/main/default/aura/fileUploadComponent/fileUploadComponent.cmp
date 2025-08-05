@@ -1,0 +1,39 @@
+<aura:component controller="FileUploadComponentController" implements="force:appHostable,flexipage:availableForAllPageTypes,lightning:availableForFlowActions,lightning:availableForFlowScreens" access="global">
+    <!-- Flow Attribute to Store Content Document Id -->
+    <aura:attribute name="contentDocumentId" type="String" access="global"/>
+    <aura:attribute name="uploadedFile" type="Object" />
+    <aura:attribute name="isFileUploaded" type="Boolean" default="false" />
+
+    <div class="file-upload-container">
+        <!-- File Input -->
+        <lightning:fileUpload
+            label="Upload File"
+            name="fileUploader"
+            recordId="{!null}"
+            onuploadfinished="{!c.handleFileUpload}"
+            disabled="{!v.isFileUploaded}"
+            multiple="false"
+            accept=".png,.jpg,.jpeg,.pdf,.doc,.docx,.zip,.mp4,.xlsx,.pptx" />
+
+        <!-- Display Uploaded File Name -->
+        <aura:if isTrue="{!v.isFileUploaded}">
+            <div class="uploaded-file-info slds-m-top_medium slds-grid">
+                <div class="slds-grid">
+                    <!-- File Name -->
+                    <span class="slds-text-body_regular slds-text-align_left slds-truncate" style="max-width: 80%;">
+                        {!v.uploadedFile.name}
+                    </span>
+            
+                    <!-- Remove Button -->
+                    <lightning:buttonIcon
+                        iconName="utility:close"
+                        alternativeText="Remove File"
+                        onclick="{!c.removeFile}"
+                        class="remove-file-button slds-m-left_x-small"
+                        variant="border-filled" 
+                        size="small" />
+                </div>
+            </div>            
+        </aura:if>
+    </div>
+</aura:component>

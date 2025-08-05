@@ -1,0 +1,12 @@
+.THIS .text-container {
+    display: flex;              /* Use Flexbox for alignment */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically (optional if needed) */
+    height: 100vh;              /* Optional: Make the container full height */
+    text-align: center;         /* Center text within the container */
+}
+
+.THIS .custom-text-link {
+    color: white;               /* White text color */
+    cursor: pointer;            /* Pointer cursor */
+}

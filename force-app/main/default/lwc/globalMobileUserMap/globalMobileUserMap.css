@@ -1,0 +1,76 @@
+/* globalMobileUserMap.css */
+.map-wrapper {
+	position: relative;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.map-container {
+	width: 100%;
+	height: 100%;
+	min-height: 200px;
+	background-color: #f8f9fa;
+	border-radius: 4px;
+	overflow: hidden;
+	border: none;
+	/* Remove border since it's now on wrapper */
+}
+
+lightning-spinner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+.tooltip {
+	pointer-events: none;
+}
+
+.legend text {
+	font-size: 12px;
+	font-family: sans-serif;
+}
+
+.zoom-controls {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	z-index: 1000;
+}
+
+.zoom-button {
+	width: 30px;
+	height: 30px;
+	border: 1px solid #ddd;
+	background: white;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 18px;
+	line-height: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.zoom-button:hover {
+	background: #f8f9fa;
+}
+
+.slds-assistive-text {
+	position: absolute !important;
+	margin: -1px !important;
+	border: 0 !important;
+	padding: 0 !important;
+	width: 1px !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	clip: rect(0 0 0 0) !important;
+	text-transform: none !important;
+	white-space: nowrap !important;
+}

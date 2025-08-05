@@ -1,0 +1,35 @@
+<template>
+    <div class="slds-p-top_medium slds-p-bottom_small">
+    <c-ace_-line-item-text label={label} curr-code={currCode} currency={currency}  is-payment-type-check={isPaymentTypeCheck}></c-ace_-line-item-text>
+</div>
+    <div class="slds-p-left_x-small">
+        
+       
+            <!-- <div class="slds-col_bump-left slds-size_1-of-12">
+                <lightning-icon icon-name="utility:clock" size="small"></lightning-icon>
+            </div> -->
+            <template if:true={dueDate}>
+              <div class="slds-p-bottom_x-small">
+                <p class=" slds-p-left_x-small">  <lightning-icon icon-name="utility:clock" size="xx-small" class="slds-p-right_x-small"></lightning-icon>File by {dueDate}</p>
+            </div>
+            </template>
+            <template if:true={hasFilingMethod}>
+                <div class="slds-p-bottom_small">
+                    <p class="slds-p-left_x-small" style={computedStyle}><lightning-icon icon-name="utility:file" size="xx-small" class="slds-p-right_x-small" style={iconStyle}></lightning-icon>
+                    {filingMethodText}</p>
+                </div>
+            </template>
+               
+               
+                <template if:true={hasSettlementType}>
+                <div class = "">
+                    <template if:true={showIcon}>
+                        <p class="slds-p-left_x-small" style={computedStyle}><lightning-icon icon-name="utility:moneybag" size="xx-small" class="slds-p-right_x-small" style={iconStyle}></lightning-icon>
+                            {settlementText}</p>
+                    </template>
+                    
+                </div>
+            </template>
+            
+    </div>
+</template>
