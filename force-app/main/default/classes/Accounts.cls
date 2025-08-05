@@ -1,3 +1,4 @@
+/* Test Class */
 public class Accounts {
     @testVisible
     private AccountsDao dao = new AccountsDao();  
