@@ -1,0 +1,72 @@
+<aura:component controller="ClientPortalUserTableController" 
+    implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId,force:appHostable" 
+    access="global">
+    
+    <aura:attribute name="userData" type="Object[]"/>
+    <aura:attribute name="isLoading" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div>
+        <lightning:card title="My Team" class="slds-card">
+            <!-- Loading Spinner -->
+            <aura:if isTrue="{!v.isLoading}">
+                <lightning:spinner alternativeText="Loading..." />
+            </aura:if>
+
+            <!-- Responsive Grid to Display Users -->
+            <aura:if isTrue="{!v.userData.length > 0}">
+                <div style="max-height: 500px; overflow-y: auto; overflow-x: hidden; display: flex; flex-direction: column; width: 100%;">
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <aura:iteration items="{!v.userData}" var="user">
+                            <div class="slds-col slds-size_6-of-12"> <!-- Two columns layout -->
+                                <div class="slds-card slds-m-around_small slds-m-left_none">
+                                    <header class="slds-card__header slds-grid">
+                                        <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                                             <!--<div class="slds-media__figure">
+                                                <lightning:icon iconName="standard:user" size="small" class="my-icon"/>
+                                            </div> -->
+                                            <div class="slds-media__body">
+                                                <h2 class="slds-text-heading_small slds-truncate" title="{!user.Name}" style="color: rgb(141, 12, 24);">
+                                                    <strong>{!user.Name}</strong>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </header>
+                                   <div class="slds-card__body slds-card__body_inner">
+        <div class="slds-grid slds-grid_vertical-align-center">
+            <img src="{!$Resource.Timezone}" alt="TimeZone" class="custom-icon-blue slds-m-right_x-small" width="22" height="16"/>
+            <p><strong>Time Zone: </strong> {!user.TimeZone}</p>
+        </div>
+        <div class="slds-grid slds-grid_vertical-align-center">
+            <lightning:icon iconName="utility:email" size="small" class="custom-icon-black slds-m-right_x-small"/>
+            <p><strong>Email: </strong> 
+                <a href="{! 'mailto:' + user.Email }" target="_blank">{!user.Email}</a>
+            </p>
+        </div>
+        <div class="slds-grid slds-grid_vertical-align-center">
+            <lightning:icon iconName="utility:call" size="small" class="custom-icon-black slds-m-right_x-small"/>
+            <p><strong>Phone: </strong> {!user.Phone}</p>
+        </div>
+        <div class="slds-grid slds-grid_vertical-align-center">
+            <img src="{!$Resource.LinkedIn_Image}" alt="LinkedIn" class="custom-icon-blue slds-m-right_x-small" width="22" height="16"/>
+            <p>
+                <a href="{!user.LinkedIn_URL}" target="_blank">LinkedIn</a>
+            </p>
+        </div>
+    </div>
+                                </div>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </aura:if>
+
+            <!-- Fallback for No Data -->
+            <aura:if isTrue="{!v.userData.length == 0}">
+                <div class="slds-text-align_center">
+                    <p><strong>No members found in your team.</strong></p>
+                </div>
+            </aura:if>
+        </lightning:card>
+    </div>
+</aura:component>

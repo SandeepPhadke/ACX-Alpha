@@ -1,0 +1,31 @@
+<template>
+    <template if:false={isLoading}>
+                
+        <div class="slds-progress" style="padding-left:5%">
+            <ol class="slds-progress__list">
+                <template for:each={options} for:item="step" for:index="index">
+                    <li key={step.label} class={step.itemStyle} style="padding-right:13%" >
+                        <div  class={step.markerStyle} tabindex={index}>
+                            <div if:true={step.isCompleted}>
+                                <lightning-icon icon-name='utility:success' alternative-text="" title="success" size="x-small" class ="completed-icon"></lightning-icon>
+                            </div>
+                            <!-- <svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+                            </svg> -->
+                            <span class="slds-assistive-text">{step.label}</span>
+                        </div>
+                        <div class="slds-p-top_large slds-is-absolute" style="width :20%">
+                         {step.label}
+                        </div>
+                    </li>
+                </template>
+            </ol>
+            <div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100"
+                aria-valuenow="0" aria-label="Placeholder for description of progress bar" role="progressbar" style = "width:80%">
+                <span class="slds-progress-bar__value" style={progressStyle}>
+                    <span class="slds-assistive-text">Progress: {progressPercentage}%</span>
+                </span>
+            </div>
+        </div>
+    </template>
+</template>

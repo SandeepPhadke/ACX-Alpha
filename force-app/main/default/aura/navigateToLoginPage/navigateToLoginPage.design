@@ -1,0 +1,4 @@
+<design:component >
+  <design:attribute name="profileName" label="Profile Name" />
+
+</design:component>

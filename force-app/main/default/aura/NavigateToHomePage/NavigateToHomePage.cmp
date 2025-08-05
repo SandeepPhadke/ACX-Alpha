@@ -1,0 +1,4 @@
+<aura:component implements="force:lightningQuickAction,lightning:availableForFlowActions" >
+    <lightning:navigation aura:id="navigationService" />
+	
+</aura:component>

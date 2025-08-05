@@ -1,0 +1,43 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId,force:appHostable" access="global">
+    <aura:attribute name="isModalOpen" type="Boolean" default="false"/>
+
+    <div class="text-container">
+        <!-- Display clickable text -->
+        
+        <a href="javascript:void(0);" onclick="{!c.openModal}" class="slds-align_absolute-center slds-text-link custom-text-link">
+            Having trouble logging in?
+            <br/>
+            Click here for assistance.
+        </a>
+    </div>
+
+    <!-- Modal Popup -->
+    <aura:if isTrue="{!v.isModalOpen}">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal Header -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick="{!c.closeModal}">
+                        <lightning:icon iconName="utility:close" size="small" alternativeText="close"/>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium">Help Center</h2>
+                </header>
+
+                <!-- Modal Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p>For help with logging in, please email us at TBD with a description of your issue, your name, email, and phone number and we will contact you as soon as possible.</p>
+                </div>
+
+                <!-- Modal Footer -->
+                <footer class="slds-modal__footer">
+                    <lightning:button label="Close" onclick="{!c.closeModal}" variant="neutral"/>
+                </footer>
+            </div>
+        </section>
+
+        <!-- Modal Backdrop -->
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

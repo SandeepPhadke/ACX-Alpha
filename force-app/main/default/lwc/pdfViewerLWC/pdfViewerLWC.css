@@ -1,0 +1,9 @@
+iframe {
+    border: 0;
+    width: 100%;
+}
+.custom-download-button .slds-button {
+    background-color: #8d0c18;
+    color: white;
+    border: none;
+}

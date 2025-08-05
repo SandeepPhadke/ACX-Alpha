@@ -1,0 +1,64 @@
+<template>
+    <div style="background-color: rgb(239, 237, 237); " >
+    <div class="slds-p-bottom_x-small " >
+    <c-ace_-tax-return-banner  record-id={recordId} screen-number={ScreenNumber}>  </c-ace_-tax-return-banner>
+</div>
+<!-- <div class="slds-var-m-around_xx-large">
+<article class="slds-card">  
+    <div class="slds-card__body slds-card__body_inner ">  
+          <c-ace_-tax-return-overview>  </c-ace_-tax-return-overview>
+    </div>
+    </article>  
+   
+</div> -->
+<template if:true={showOverviewSection}>
+
+<div class="slds-p-around_xx-large slds-m-around_xx-large slds-m-top_none slds-p-top_none" style="border: 0px solid black; padding-left: 8%; padding-right: 8%; padding-bottom:2%">
+<div class="slds-p-bottom_none">
+    <c-pdf-viewer-l-w-c 
+                work-record-id={sharedFileData.id} 
+                file-type="Tax Return"
+                height-in-rem="35"  
+                hide-button-on-next-step ={showOverviewSection}
+                screen-number={ScreenNumber}>
+                
+            </c-pdf-viewer-l-w-c>
+    <c-ace_-tax-return-overview record-id={recordId}>  </c-ace_-tax-return-overview>
+</div>
+<div class="slds-p-top_x-large slds-p-bottom_large">
+
+<c-ace_-tax-return-footer></c-ace_-tax-return-footer>
+</div>
+</div>
+</template>
+
+ <template if:true={showPdfViewer}>
+    <div class="slds-p-around_xx-large slds-m-around_xx-large slds-m-top_none slds-p-top_none" style="border: 0px solid black; padding-left: 23%; padding-right: 23%; padding-bottom:0%">
+
+            <c-pdf-viewer-l-w-c 
+                work-record-id={sharedFileData.id} 
+                file-type="Tax Return"
+                height-in-rem="35"  
+                hide-button-on-next-step ="5"
+                screen-number={ScreenNumber}>
+                
+            </c-pdf-viewer-l-w-c>
+        </div>
+        </template>
+
+
+        <template if:true={showPdfViewerForScreenThird}>
+            <div class="slds-p-around_xx-large slds-m-around_xx-large slds-m-top_none" style="border: 0px solid black; padding-left: 8%; padding-right: 8%; padding-bottom:0%">
+
+            <c-pdf-viewer-l-w-c 
+                work-record-id={sharedFileData.id} 
+                file-type="Tax Return"
+                height-in-rem="35"
+                hide-button-on-next-step ="3">
+            </c-pdf-viewer-l-w-c>
+            </div>
+        </template>
+</div>
+
+
+</template>

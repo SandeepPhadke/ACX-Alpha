@@ -1,0 +1,9 @@
+<aura:component implements="lightning:availableForFlowScreens,force:hasRecordId" access="global">
+    <!-- Define attributes in Aura -->
+    <aura:attribute name="fileId" type="String" access="global" />
+    <aura:attribute name="heightInRem" type="String" access="global" />
+    <aura:attribute name="onStep2" type="String" access="global" />
+
+    <!-- Pass the attributes to LWC -->
+    <c:pdfDownloaderLWC workRecordId="{!v.fileId}" heightInRem="{!v.heightInRem}" hideButtonOnNextStep="{!v.onStep2}"></c:pdfDownloaderLWC>
+</aura:component>

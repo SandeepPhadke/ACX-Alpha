@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title={labelHeading}>
+        <template if:true={gridData}>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-tree-grid
+                    columns={columns}
+                    data={gridData}
+                    key-field="engagementId"  
+                    ontoggle={handleRowToggle} 
+                    hide-checkbox-column
+                >
+                </lightning-tree-grid>
+                <div class="slds-m-top_medium">
+                    <template if:true={isLoading}>
+                        <lightning-spinner alternative-text="Loading..." size="small"></lightning-spinner>
+                    </template>
+                    <template if:false={isLoading}>
+                    <template if:true={hasMoreRecords}>
+                        <div onclick={handleLoadMore} style="cursor: pointer; color: #6da8ec">Load More...</div>
+                    </template>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+        <template if:true={error}>
+            <div class="slds-text-color_error slds-m-top_medium">
+                Error: {error.body.message}
+            </div>
+        </template>
+    </lightning-card>
+</template>

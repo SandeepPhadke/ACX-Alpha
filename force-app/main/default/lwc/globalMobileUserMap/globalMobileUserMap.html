@@ -1,0 +1,13 @@
+<template>
+	<template if:false={isLoading}>
+		<div class="map-wrapper">
+			<div class="map-container" lwc:dom="manual"></div>
+			<div class="zoom-controls" role="group" aria-label="Map zoom controls">
+				<button class="zoom-button" onclick={handleZoomIn} aria-label="Zoom in">
+					<span class="slds-assistive-text">Zoom in</span>+</button>
+				<button class="zoom-button" onclick={handleZoomOut} aria-label="Zoom out">
+					<span class="slds-assistive-text">Zoom out</span>−</button>
+			</div>
+		</div>
+	</template>
+</template>

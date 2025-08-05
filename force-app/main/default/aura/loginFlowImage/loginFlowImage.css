@@ -1,0 +1,12 @@
+.THIS .image-container {
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    text-align: center; 
+}
+
+.THIS .responsive-image {
+    max-width: 100%; 
+    height: auto;
+    padding-left: 4rem;
+}

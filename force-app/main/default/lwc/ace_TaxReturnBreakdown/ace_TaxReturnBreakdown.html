@@ -1,0 +1,144 @@
+<template>
+    <div class="slds-border_right" style="">
+     <div class="slds-p-left_none slds-p-right_xx-large">   
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium slds-text-align_center" style={computedStyleforheight}>
+        <strong class="bold-text"> Tax Return Breakdown </strong>
+     </h2>
+    <div class="slds-m-right_xx-large slds-p-right_medium slds-p-top_medium">
+        
+
+        
+            <!-- <p class="slds-text-heading_small bold-text"><strong>{label}</strong></p> -->
+            <template if:true={hasRefunds}>
+            <h3 class="slds-text-color_weak  slds-text-heading_small">
+                <strong>REFUNDS</strong> 
+            </h3>
+            <div class="">
+            <template if:true={hasRefunds}>
+                <template for:each={federalRefunds} for:item="item">
+                    <c-ace_-tax-settlement 
+                    key={item.Id}
+                    record-id={item.Id}
+                        >
+                    </c-ace_-tax-settlement>
+            </template>
+
+            <template for:each={stateRefunds} for:item="item">
+                <c-ace_-tax-settlement 
+                key={item.Id}
+                record-id={item.Id}
+                    >
+                </c-ace_-tax-settlement>
+            </template>
+            </template>
+        </div>
+        <div class="slds-p-top_medium slds-p-bottom_medium"><hr style="height:1px;border-width:0;color:#b7afaf;background-color:#b8b8b8;margin:0;"></hr>
+        </div>
+    </template>
+    <template if:true={hasPayments}>
+
+            <div class="slds-m-bottom_medium">
+            <h3 class="slds-text-color_weak  slds-text-heading_small">
+                <strong>PAYMENTS</strong>  
+            </h3>
+            <div>
+
+                <template for:each={federalPayments} for:item="item">
+                    <c-ace_-tax-settlement 
+                    key={item.Id}
+                    record-id={item.Id}
+                        >
+                    </c-ace_-tax-settlement>
+            </template>
+
+            <template for:each={statePayments} for:item="item">
+                <c-ace_-tax-settlement 
+                key={item.Id}
+                record-id={item.Id}
+                    >
+                </c-ace_-tax-settlement>
+            </template>  
+            </div>
+        </div>
+        <div class="slds-p-top_medium slds-p-bottom_medium"><hr style="height:1px;border-width:0;color:#b0a4a4;background-color:#b8b8b8;margin:0;"></hr>
+        </div> 
+    </template>
+             
+        
+        <template if:true={equalizations.length}>
+            <div class="slds-m-bottom_medium">
+                <h3 class="slds-text-color_weak  slds-text-heading_small">
+                    <strong>TAX EQUALIZATION</strong> 
+                </h3>
+                <!-- <template if:true={fbars.length}>
+                    <template for:each={fbars} for:item="item">
+                        
+                        <c-ace_-tax-breakdown-equalization key={item.Id} record-id={item.Id}></c-ace_-tax-breakdown-equalization>
+                    </template>
+                </template> -->
+                <template if:true={equalizations.length}>
+                    <template for:each={equalizations} for:item="item">
+                        
+                        <c-ace_-tax-breakdown-equalization key={item.Id} record-id={item.Id}></c-ace_-tax-breakdown-equalization>
+                    </template>
+                </template>
+                <div class="slds-p-top_medium slds-p-bottom_medium"><hr style="height:2px;border-width:0;color:#0c0c0c;background-color:#383535;margin:0;"></hr>
+                </div>
+    
+    
+           
+    
+
+            </div>
+            
+        </template>
+            
+        <template if:true={formattedAmount}>
+            <div class="slds-grid slds-m-bottom_medium">
+                <strong class="slds-col slds-text-heading_small slds-p-left_none slds-text-align_left bold-text">{NetAmountLabel}</strong>
+                <strong class="slds-col  slds-text-heading_small slds-text-align_right bold-text" style={computedStyle}>{formattedAmount}</strong>
+                
+            </div>
+        </template>
+            <template if:true={hasfbar}>
+    
+                <div class="slds-m-bottom_medium slds-m-top_xx-large">
+                    <template if:true={fbars.length}>
+                        <h3 class="slds-text-color_weak  slds-text-heading_small">
+                            <strong>OTHER FILINGS </strong>
+                        </h3>
+                        <div class="">
+        
+                        <template for:each={fbars} for:item="item">
+                            
+                            <c-ace_-tax-settlement 
+                            key={item.Id}
+                            record-id={item.Id}
+                                >
+                            </c-ace_-tax-settlement>
+                        </template>  
+                    </div>
+                    
+                    </template>
+                </div>
+              
+            </template> 
+
+
+
+    
+
+
+
+
+
+        <!-- <template for:each={refundRecords} for:item="refund">
+            <c-ace-tax-settlement 
+                key={refund.id}
+                record={refund}>
+            </c-ace-tax-settlement>
+        </template> -->
+    </div>
+</div>
+</div>
+</template>

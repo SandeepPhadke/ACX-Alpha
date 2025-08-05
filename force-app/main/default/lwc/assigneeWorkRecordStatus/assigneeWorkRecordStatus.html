@@ -1,0 +1,70 @@
+<template>
+	<div class="slds-text-heading_medium slds-m-bottom_small slds-m-bottom_large">
+        <b>Services</b>
+    </div>
+	<!-- Check if work records are available -->
+	<template if:true={hasWorkRecords}>
+		<!-- Loop through each work record -->
+		<template for:each={workRecords} for:item="record">
+			<div key={record.recordId} data-id={record.recordId} onclick={handleNavigation} class="record-container">
+				<!-- Only show name if no recordId is provided (multiple records view) -->
+				<template if:false={recordId}>
+					<div class="slds-text-heading_small slds-p-bottom_x-small record-name">
+						{record.displayName}
+					</div>
+				</template>
+				<!-- Path component -->
+				<div class="slds-path slds-var-m-bottom_medium">
+					<div class="slds-grid slds-path__track">
+						<div class="slds-grid slds-path__scroller-container">
+							<div class="slds-path__scroller" role="application">
+								<div class="slds-path__track">
+									<ul class="slds-path__nav" role="listbox" aria-orientation="horizontal">
+										<!-- Loop through each step in the path -->
+										<template for:each={record.steps} for:item="step">
+											<li key={step.value} class={step.class} role="presentation">
+												<a aria-selected={step.selected} class="slds-path__link" role="option"
+													tabindex="-1" title={step.label}>
+													<!-- Step icon -->
+													<span class="slds-path__stage">
+														<lightning-icon icon-name={step.icon} variant="inverse"
+															size="xx-small"></lightning-icon>
+													</span>
+													<!-- Step label -->
+													<span class="slds-path__title">{step.label}</span>
+												</a>
+											</li>
+										</template>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+	</template>
+
+	<template if:true={showEmptyState}>
+		<div class="slds-p-horizontal_small slds-m-top_medium">
+    <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-start slds-text-color_weak">
+				<lightning-icon icon-name="utility:opened_folder" size="medium" class="slds-m-right_small" alternative-text="No Records"
+					title="No Records"></lightning-icon>
+			
+			<div>
+        <p class="slds-text-heading_small slds-m-bottom_xx-small">
+          <strong>No services in progress.</strong>
+        </p>
+        <p>Let us know if there’s something we can help with.</p>
+      </div>
+		</div>
+		</div>
+	</template>
+
+	<!-- Display error if any -->
+	<template if:true={error}>
+		<div class="slds-text-color_error slds-m-around_medium">
+			{error}
+		</div>
+	</template>
+</template>

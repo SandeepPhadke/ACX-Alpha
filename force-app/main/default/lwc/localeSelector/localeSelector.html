@@ -1,0 +1,36 @@
+<template>
+	<!-- <lightning-card title="Date, Number and Time format"> -->
+	<div class="slds-var-p-bottom_small">
+		<!-- Current Locale Information -->
+		<div class="slds-box locale-info">
+			<!-- <div class="slds-text-heading_small slds-m-bottom_small">Current Locale: {selectedLocale}</div> -->
+			<div class="slds-grid slds-wrap slds-gutters">
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-bottom_small">
+					<p class="slds-text-title">Date Format:</p>
+					<p class="slds-text-body_regular">{formattedDate}</p>
+				</div>
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-bottom_small">
+					<p class="slds-text-title">Number Format:</p>
+					<p class="slds-text-body_regular">{formattedNumber}</p>
+				</div>
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-bottom_small">
+					<p class="slds-text-title">Time Format:</p>
+					<p class="slds-text-body_regular">{formattedTime}</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Locale Selection Combobox -->
+		<lightning-combobox name="localeSelector" label="Select your desired Date, Number and Time format"
+			value={selectedLocale} placeholder="Choose a locale" options={localeOptions} onchange={handleLocaleChange}>
+		</lightning-combobox>
+
+		<!-- Loading Spinner displayed during asynchronous operations -->
+		<template if:true={isLoading}>
+			<div class="slds-m-top_medium">
+				<lightning-spinner alternative-text="Loading"></lightning-spinner>
+			</div>
+		</template>
+	</div>
+	<!-- </lightning-card> -->
+</template>

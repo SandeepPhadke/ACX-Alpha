@@ -1,0 +1,22 @@
+<template>
+    <div class=" slds-theme_shade slds-grid slds-align_absolute-center slds-p-around_medium slds-p-left_large slds-p-right_large" style="background-color: rgb(239, 237, 237); height: 175px;">
+        <!-- Image Section -->
+        <div class="slds-col slds-size_1-of-1 slds-m-left_x-large slds-m-right_medium slds-p-right_none slds-p-left_none slds-avatar slds-avatar_circle" style="max-width: 145px; height: auto; min-width: 95px; min-height: 90px;">
+            <img src={imageUrl} alt="Profile Photo" />
+        </div>
+
+        <!-- Text Section -->
+        <div class="slds-col slds-p-right_xx-large slds-p-left_medium">
+            <!-- Show First h2 Only When ScreenNumber is NOT 2 -->
+            <template if:true={showFirstHeading}>
+                <h2 class="slds-text-heading_large"><strong style="color: black;">{formattedUserText}</strong></h2>
+            </template>
+
+            <!-- Always Show Second h2 -->
+            <h2 class="slds-text-heading_large slds-p-bottom_small"><strong style="color: black;">{formattedName}</strong></h2>
+
+            <!-- Static Text -->
+            <p class="slds-text-heading_small" style="color: black; line-height:1.5rem;">{FormattedText}</p>
+        </div>
+    </div>
+</template>
